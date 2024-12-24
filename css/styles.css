@@ -1,0 +1,66 @@
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    
+    padding-top: 20px;
+}
+.sidebar a {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: #b2b6bf;
+}
+
+.sidebar a:hover {
+    background-color: #252a31;
+    color: #36bcba;
+    border-radius: 10px;
+}
+.content {
+    margin-left: 250px;
+    
+}
+
+
+.theme-bg {
+    background-color: #121212;
+}
+
+
+.circle-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.theme-font-active {
+    color: #d063e7;
+}
+
+.border-theme-bottom {
+    border-bottom: 1px solid #d063e7;
+}
+
+
+.theme-custom-bg {
+    background-color: #1e1e1e;
+    
+}
+
+
+
+.link.active {
+    color: #d063e7; /* Distinct color for active link */
+    font-weight: bold; /* Optional: make the text bold */
+    
+}

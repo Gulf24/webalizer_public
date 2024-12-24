@@ -1,0 +1,540 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Jess Bugs">
+    <meta name="keywords" content="systems overview, portfolio page, landing page, box office page, visitors, databases, systems overview">
+    <meta name="description" content="This page contains statistics of my inner IT infrastructure.">
+    
+    <title>Webalizer</title>
+    <link rel="icon" type="image/x-icon" href="images/webalizer-logo-nobg.png">
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    
+    
+    <!-- Boostrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Boostrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- fontawesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    
+    <!-- Own CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        
+        /* Responsive styles */
+        @media screen and (max-width: 1199px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+            .content {
+                margin-left: 0;
+            }
+        }
+        
+    </style>
+    
+</head>
+<body class="theme-bg">
+    
+    
+    
+    
+    <!-- Reference for this App -->
+    <!-- https://dribbble.com/shots/24069348--Exploration-Financial-Dashboard -->
+    
+    
+    <!-- Sidebar -->
+    <div class="d-none d-xl-block sidebar p-2" style="background-color: #1a1f1f;">
+        
+        
+        <!-- Sidebar Header -->
+        <div class="d-flex align-items-center justify-content-between" style="margin-bottom: 50px;">
+            
+            <div class="text-start d-flex align-items-center">
+                <img src="avatars/avatar3.png" class="circle-image user-profile-img" alt="user-profile" >
+                <p class="text-white m-0 user-profile-txt"><a href="#" class="link-light text-decoration-underline" style="background-color: #1a1f1f;">Jess Bugs</a></p>
+            </div>
+            
+            <div class="justify-content-center text-center mt-1">            
+                <!-- <i class="bi bi-arrow-right text-secondary fs-3"></i> -->
+                <button style="display: none;" id="expand-sidebar" class="btn"><i class="bi bi-arrow-right text-secondary fs-3"></i></button>
+                <button id="shrink-sidebar" class="btn"><i class="bi bi-arrow-left text-secondary fs-3"></i></button>            
+            </div>            
+        </div>        
+        
+        
+        
+        <!-- Sidebar Body -->
+        <div id="sidebar-body" class="d-flex flex-column">
+            
+            
+            
+            <!-- Shrinked Side Bar - showing only Tools icons -->
+            <div id="shrinked-sidebar-tools" class="text-center d-none col-xl-5 mt-auto">
+                
+                <p class="fs-4 text-white p-0"><a href="#"><i class="bi bi-moon-stars-fill"></i></a></p>
+                <p class="fs-4 text-white p-0"><a href="#"><i class="bi bi-box"></i></a></p>
+                <p class="fs-4 text-white p-0"><a href="#"><i class="bi bi-person-fill-gear"></i></a></p>
+            </div>
+            
+            
+            
+            <!-- Open NOTES -->
+            <div id="shrink-sidebar-note" class="mt-auto d-none">
+                <p class="fs-4 text-white p-0"><a href="#"><i class="bi bi-journal-code"></i></a></p>
+            </div>
+            
+            
+            
+            <div id="expanded-sidebar-tools">
+                <!-- Tools -->
+                <div id="sidebar-tools" class="border-top border-secondary p-1">
+                    <p class="text-white">Tools</p>
+                    
+                    <a href="javascript:void(0)" class="link active"><i class="bi bi-moon-stars-fill"></i> Lunatus</a>
+                    <a href="javascript:void(0)" class="link"><i class="bi bi-box"></i> LMS Dumps</a>
+                    <a href="javascript:void(0)" class="link"><i class="bi bi-person-fill-gear"></i> User Management</a>
+                    <a href="javascript:void(0)" class="link"><i class="bi bi-key"></i> Password Manager</a>
+                    <a href="javascript:void(0)" class="link"><i class="bi bi-microsoft"></i> MS Account Manager</a>
+                    
+                </div>
+                
+                
+                
+                
+                
+                <!-- Tool Configuration -->
+                <div class="border-top border-secondary p-1 mt-5">
+                    <p class="text-white mt-1">Configuration</p>
+                    
+                    <!-- Weekly Report -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="weekly-report-checkbox" checked>
+                        <label class="form-check-label text-white" for="weekly-report-checkbox">
+                            Weekly Report
+                        </label>
+                    </div>
+                    
+                    <!-- Countries -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="top-coutries-checkbox" checked>
+                        <label class="form-check-label text-white" for="top-coutries-checkbox">
+                            Top Countries
+                        </label>
+                    </div>
+                    
+                    <!-- Report Summary -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="report-summary-checkbox" checked>
+                        <label class="form-check-label text-white" for="report-summary-checkbox">
+                            Weekly Report
+                        </label>
+                    </div>
+                </div> 
+                
+                
+                <!-- Database Configuration -->
+                <div class="border-top border-secondary p-1 mt-5">
+                    <p class="text-white mt-1">Database</p>
+                    
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-sm btn-outline-light disabled">Sort By</button>
+                        
+                        <div class="btn-group" role="group">
+                            
+                            <!-- <input type="date" class="bg-dark text-white"> -->
+                            
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Occurence
+                            </button>
+                            <ul class="dropdown-menu p-1">
+                                
+                                <li class="m-0"><a class="dropdown-item" style="background-color: white; color: black;" href="#">Date</a></li>
+                                <li class="m-0"><a class="dropdown-item m-0" style="background-color: white; color: black;" href="#">Organization</a></li>
+                            </ul>                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Open NOTES -->
+                <div class="border-top border-secondary" style="margin-top: 100px;">
+                    <a href="javascript:void(0)" class="link link-light mt-2 mb-4"><i class="bi bi-journal-code"></i> Open Notes</a>
+                </div>
+                
+            </div>
+            
+            
+            
+            
+            <!-- text at the bottom of sidebar -->
+            <div id="sidebar-bottom-text" class="mt-auto">
+                <p class="text-secondary">System Version <br>Beta v1.1</p>
+            </div>
+            
+        </div>                
+    </div>
+    
+    
+    
+    
+    
+    <!-- Main Content -->
+    <div class="content ">
+        
+        
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg theme-bg border-bottom border-muted" data-bs-theme="dark">
+            <div class="container-fluid">
+                
+                <!-- brand -->
+                <a class="navbar-brand" href="#">
+                    <img style="height: 50px;" src="images/webalizer-logo-nobg.png" alt="brand">
+                    Webalizer
+                </a>
+                
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">                    
+                    <ul class="navbar-nav">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link theme-font-active pb-3 border-theme-bottom" aria-current="page" href="#">Dashboard</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Account</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Settings</a>
+                        </li>
+                        
+                        <li class="nav-item dropdown d-none">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Other
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>                    
+                </div>
+                
+                
+                <!-- logged in user info -->
+                <div class="justify-content-end me-3 d-none d-lg-block">
+                    <a href="#" class="link link-light text-decoration-none">Logged in as <span class="text-danger text-decoration-underline">Superuser</span></a>
+                </div>
+                
+            </div>
+        </nav>
+        
+        
+        
+        
+        
+        <!-- Dashboard -->
+        <div id="dashboard" class="mt-4 p-2 p-xl-3">
+            
+            
+            
+            <!-- Dashboard Header - this will not be affected when switching to different tool -->
+            <div class="row justify-content-between align-items-center container-fluid">                
+                <!-- Header Text -->
+                <div class="col-xl-6">
+                    <h2 class="text-white fw-bold">Dashboard</h2>
+                    <p class="text-secondary">Hi Jess, shown in this dashboard is the current status of your internal systems</p>
+                </div>
+                
+                <!-- Database Switcher -->
+                <div class="col-xl-6 text-end">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-sm btn-outline-light disabled">Showing month of</button>
+                        
+                        <div class="btn-group" role="group">
+                            
+                            <!-- <input type="date" class="bg-dark text-white"> -->
+                            
+                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                December
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">January</a></li>
+                                <li><a class="dropdown-item" href="#">February</a></li>
+                                <li><a class="dropdown-item" href="#">March</a></li>
+                            </ul>                            
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            
+            
+            
+            <!-- Tool 1 - Webalizer -->
+            <div id="tool-1" class="p-1 p-xl-4">
+                
+                
+                <!-- Card container -->
+                <div class="row justify-content-between mt-3 ">                    
+                    
+                    
+                    <!-- Weekly Report - Line Chart -->
+                    <div class="col-xl-6 col-xxl-4">  
+                        
+                        <div class="rounded-4 p-2 p-xl-3 theme-custom-bg h-100">
+                            
+                            <!-- some headers -->
+                            <div>
+                                <div class="clearfix">
+                                    <div class="float-start">
+                                        <h3 class="fw-bold text-white">Weekly Report</h3>                                     
+                                    </div>
+                                    
+                                    <div class="float-end">
+                                        <button class="btn btn-sm btn-outline-secondary text-white">Full Report</button>
+                                    </div>
+                                </div>
+                                <p class="text-secondary">Data from 1-8 Dec, 2024</p>
+                            </div>
+                            
+                            <!-- Weekly Chart Data Visualization -->
+                            <canvas id="visitor_line_chart"></canvas>
+                            
+                            
+                            <!-- Legend for Line Chart -->
+                            <div class="mt-4 row justify-content-between">
+                                <div class="col-6 col-xxl-4">
+                                    <p class="text-secondary"><i class="bi bi-circle-fill me-1" style="color: #d059cf;"></i>Landing Page</p>
+                                </div>
+                                
+                                <div class="col-6 col-xxl-4">
+                                    <p class="text-secondary"><i class="bi bi-circle-fill me-1" style="color: red;"></i>Portfolio</p>
+                                </div>
+                                
+                                <div class="col-xxl-4">
+                                    <p class="text-secondary"><i class="bi bi-circle-fill me-1" style="color: #966dffcf;"></i>Box Office</p>
+                                </div>
+                            </div>
+                            
+                        </div>                        
+                    </div>
+                    
+                    
+                    <!-- Top 5 Countries - Bar Chart -->
+                    <div class="col-xl-6 col-xxl-4">        
+                        
+                        <div class="rounded-4 theme-custom-bg p-2 p-xl-3 mt-4 mt-xl-0 d-flex flex-column h-100">
+                            <h3 class="fw-bold text-white">Top 5 Countries</h3>
+                            <p class="text-secondary">Data from 1-8 Dec, 2024</p>                            
+                            <canvas id="country_bar_chart"></canvas>                                                    
+                            
+                            <p class="mt-auto text-secondary">For a complete list of occured countries, check Lunatus <a href="#" class="link link-info">here.</a></p>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    
+                    <!-- Report Summary - Doughnut Chart -->
+                    <div class="col-xl-6 col-xxl-4 mt-5 mt-xl-3 mt-xxl-0">
+                        
+                        <div class="rounded-4 theme-custom-bg p-2 p-xl-3 h-100">
+                            
+                            <div>
+                                <div class="d-flex justify-content-between">
+                                    <div class="float-start">
+                                        <h3 class="fw-bold text-white">Report Summary</h3>                                    
+                                    </div>
+
+                                    <div class="float-end">
+                                        <button class="btn btn-sm btn-outline-secondary text-white">Full Report</button>
+                                    </div>
+                                </div>
+                                <p class="text-secondary">Data from 1-8 Dec, 2024</p>                                
+                            </div>
+                            
+                            
+                            <!-- Doughtnut Chart -->
+                            <div class="row justify-content-center">
+                                <div class="col-xl-5 col-xxl-6">
+                                    <canvas style="max-height: 200px;" id="summary-report-pie"></canvas>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <div class="row justify-content-between">
+                                    <p class="text-center text-white">3,200 hits in total</p>
+                                    
+                                    <!-- Landing Page -->
+                                    <div class="col-6">
+                                        <p style="color: #926bfa;"><i class="bi bi-dot"></i>Landing Page</p>
+                                    </div>                                
+                                    
+                                    <div class="col-6 text-end">
+                                        <p class="text-secondary">433 Hits (65%)</p>
+                                    </div>
+                                    <!-- ********** -->
+                                    
+                                    
+                                    <!-- Portfolio Page -->
+                                    <div class="col-6">
+                                        <p style="color: #ff9e2c;"><i class="bi bi-dot"></i>Portfolio Page</p>
+                                    </div>                                
+                                    
+                                    <div class="col-6 text-end">
+                                        <p class="text-secondary">122 Hits (21%)</p>
+                                    </div>
+                                    <!-- *************** -->
+                                    
+                                    
+                                    
+                                    <!-- Box Office Page -->
+                                    <div class="col-6">
+                                        <p style="color: #2bbf7d;"><i class="bi bi-dot"></i>Box Office Page</p>
+                                    </div>                                
+                                    
+                                    <div class="col-6 text-end">
+                                        <p class="text-secondary">209 Hits (32%)</p>
+                                    </div>                                    
+                                </div>                                
+                            </div>
+                        </div>                                                
+                    </div>    
+                    
+                    
+                    <!-- Table -->
+                    <div class="col-xxl-9 mt-5">
+                        <div class="table-responsive rounded border-bottom border-secondary" style="height: 350px; overflow-y: scroll;">
+                            <table class="table table-dark table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th class="text-white" style="background-color: #121212;" scope="col">Organization</th>
+                                        <th class="text-white" style="background-color: #121212;" scope="col">IP Address</th>
+                                        <th class="text-white" style="background-color: #121212;" scope="col">Occurence</th>
+                                        <th class="text-white" style="background-color: #121212;" scope="col">Region / Country</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>                                    
+                                    <tr>
+                                        <td class="text-white" style="background-color: #121212;">Tencent Building, Kejizhongyi Avenue</td>
+                                        <td class="text-white" style="background-color: #121212;">43.153.35.128</td>
+                                        <td class="text-white" style="background-color: #121212;">Saturday, 21-12-2024 - 08:10:46 AM</td>                                                                                    
+                                        <td class="text-white" style="background-color: #121212;">California, United States</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="text-white" style="background-color: #121212;">Tencent Building, Kejizhongyi Avenue</td>
+                                        <td class="text-white" style="background-color: #121212;">43.153.35.128</td>
+                                        <td class="text-white" style="background-color: #121212;">Saturday, 21-12-2024 - 08:10:46 AM</td>                                                                                    
+                                        <td class="text-white" style="background-color: #121212;">California, United States</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="text-white" style="background-color: #121212;">Tencent Building, Kejizhongyi Avenue</td>
+                                        <td class="text-white" style="background-color: #121212;">43.153.35.128</td>
+                                        <td class="text-white" style="background-color: #121212;">Saturday, 21-12-2024 - 08:10:46 AM</td>                                                                                    
+                                        <td class="text-white" style="background-color: #121212;">California, United States</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="text-white" style="background-color: #121212;">Tencent Building, Kejizhongyi Avenue</td>
+                                        <td class="text-white" style="background-color: #121212;">43.153.35.128</td>
+                                        <td class="text-white" style="background-color: #121212;">Saturday, 21-12-2024 - 08:10:46 AM</td>                                                                                    
+                                        <td class="text-white" style="background-color: #121212;">California, United States</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="text-white" style="background-color: #121212;">Tencent Building, Kejizhongyi Avenue</td>
+                                        <td class="text-white" style="background-color: #121212;">43.153.35.128</td>
+                                        <td class="text-white" style="background-color: #121212;">Saturday, 21-12-2024 - 08:10:46 AM</td>                                                                                    
+                                        <td class="text-white" style="background-color: #121212;">California, United States</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="text-white" style="background-color: #121212;">Tencent Building, Kejizhongyi Avenue</td>
+                                        <td class="text-white" style="background-color: #121212;">43.153.35.128</td>
+                                        <td class="text-white" style="background-color: #121212;">Saturday, 21-12-2024 - 08:10:46 AM</td>                                                                                    
+                                        <td class="text-white" style="background-color: #121212;">California, United States</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="text-white" style="background-color: #121212;">Tencent Building, Kejizhongyi Avenue</td>
+                                        <td class="text-white" style="background-color: #121212;">43.153.35.128</td>
+                                        <td class="text-white" style="background-color: #121212;">Saturday, 21-12-2024 - 08:10:46 AM</td>                                                                                    
+                                        <td class="text-white" style="background-color: #121212;">California, United States</td>
+                                    </tr>
+                                    
+                                    
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Lottie -->
+                    <div class="col-xxl-3 d-flex flex-column bd-primary  mt-xxl-0">
+                        <!-- <img src="images/Animation - 1734747913935(1).gif" alt="lottie-animation" class="img-fluid d-block m-auto mt-5">     -->
+                        <div class="m-auto rounded p-3">
+                            <div data-lottie-status="play" class="d-none d-xxl-block" id="lottie-animation-xl" style="width: 250px; height: 250px;"></div>                            
+                            <div data-lottie-status="play" class="d-none d-xl-block d-xxl-none" id="lottie-animation-lg" style="width: 120px; height: 120px;"></div>
+                            <div data-lottie-status="play" class="d-block d-xl-none" id="lottie-animation-sm" style="width: 150px; height: 150px;"></div>
+                            
+                            <div class="mt-2 text-center">
+                                
+                                <p class="text-center text-secondary m-0 mt-1">System is up to date.</p>
+                                <p class="text-center text-secondary m-0">Beta v1.1</p>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    
+                </div>   
+                
+            </div>            
+        </div>        
+    </div>
+    
+    <!-- JS Libs -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- CHART JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/bar-chart.js"></script>
+    <script src="js/doughnut-chart.js"></script>
+    <script src="js/lotties.js"></script>
+    <script src="js/customs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    
+    <!-- Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+    
+    
+</body>
+</html>
